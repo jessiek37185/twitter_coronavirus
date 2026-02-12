@@ -51,15 +51,21 @@ The script was run using:
 $ python visualize.py --input_path PATH --key HASHTAG
 ```
 
-### Generated Plots
+### Task 3: Visualize
 
-**By Country**
+### By Country
+
+Top 10 countries that used **#coronavirus** in 2020
 <img src="all.country.%23coronavirus.png" width="70%">
 
+Top 10 countries that used **#코로나바이러스** in 2020  
 <img src="all.country.%23코로나바이러스.png" width="70%">
 
-**By Language**
+### By Language
+Top 10 languages that used **#coronavirus** in 2020  
 <img src="all.lang.%23coronavirus.png" width="70%">
+
+Top 10 languages that used **#코로나바이러스** in 2020  
 <img src="all.lang.%23코로나바이러스.png" width="70%">
 
 ---
