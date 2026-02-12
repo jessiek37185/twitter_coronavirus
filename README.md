@@ -72,20 +72,11 @@ Top 10 languages that used **#코로나바이러스** in 2020
 
 ## Task 4: Alternative Reduce (`alternative_reduce.py`)
 
-For the alternative reduce task, I created `src/alternative_reduce.py`, which combines reduction and visualization into a single script.
+The plot below shows how hashtag usage changed over the course of 2020.
+Each line represents a different hashtag, with the x-axis corresponding
+to the day of the year and the y-axis representing the number of tweets.
 
-This program:
-- Accepts multiple hashtags as command-line arguments
-- Scans all mapping outputs
-- Generates a line plot where:
-  - The x-axis is the day of the year
-  - The y-axis is the number of tweets using each hashtag
-  - Each hashtag is represented by a separate line
-
-Example usage:
-```
-$ python3 src/alternative_reduce.py "#coronavirus" "#코로나바이러스"
-```
+<img src="daily_hashtag_trends.png" width="80%">
 
 
 ---
