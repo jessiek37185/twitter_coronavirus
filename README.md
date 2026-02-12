@@ -54,12 +54,12 @@ $ python visualize.py --input_path PATH --key HASHTAG
 ### Generated Plots
 
 **By Country**
-<img src="all.country.#coronavirus.png" />
-<img src="all.country.#코로나바이러스.png" />
+<img src="all.country.#coronavirus.png" width="70%">
+<img src="all.country.#코로나바이러스.png" width="70%">
 
 **By Language**
-<img src="all.lang.#coronavirus.png" />
-<img src="all.lang.#코로나바이러스.png" />
+<img src="all.lang.#coronavirus.png" width="70%">
+<img src="all.lang.#코로나바이러스.png" width="70%">
 
 ---
 
