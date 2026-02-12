@@ -54,12 +54,12 @@ $ python visualize.py --input_path PATH --key HASHTAG
 ### Generated Plots
 
 **By Country**
-- `all.country.#coronavirus.png`
-- `all.country.#코로나바이러스.png`
+<img src="all.country.#coronavirus.png" />
+<img src="all.country.#코로나바이러스.png" />
 
 **By Language**
-- `all.lang.#coronavirus.png`
-- `all.lang.#코로나바이러스.png`
+<img src="all.lang.#coronavirus.png" />
+<img src="all.lang.#코로나바이러스.png" />
 
 ---
 
@@ -88,4 +88,3 @@ $ python3 src/alternative_reduce.py "#coronavirus" "#코로나바이러스"
 This project demonstrates how large-scale social media data can be analyzed efficiently using MapReduce techniques. By combining mapping, reduction, and visualization, I explored how COVID-19 discussions varied across countries and languages during 2020.
 
 The resulting plots provide a clear visual overview of global and linguistic trends in coronavirus-related Twitter activity.
-
