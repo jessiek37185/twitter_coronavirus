@@ -1,54 +1,47 @@
-#!/usr/bin/env python3
-
-import os
 import sys
+import os
 import matplotlib.pyplot as plt
-from datetime import datetime
 
-hashtags = sys.argv[1:]
+def main():
+    hashtags = sys.argv[1:]
+    if not hashtags:
+        print("Usage: python3 src/alternative_reduce.py \"#hashtag1\" \"#hashtag2\"")
+        return
 
-if len(hashtags) == 0:
-    print("Usage: python3 alternative_reduce.py <hashtag1> <hashtag2> ...")
-    sys.exit(1)
+    # initialize dictionary with ALL 366 days set to 0
+    data = {
+        tag: {day: 0 for day in range(1, 367)}
+        for tag in hashtags
+    }
 
-days = []
-counts_by_tag = {tag: [] for tag in hashtags}
-
-if not os.path.isdir("outputs"):
-    print("Error: outputs/ folder not found.")
-    sys.exit(1)
-
-for filename in sorted(os.listdir("outputs")):
-
-    filepath = os.path.join("outputs", filename)
-
-    if not os.path.isfile(filepath):
-        continue
-
-    try:
-        date = datetime.strptime(filename, "%Y-%m-%d")
-    except ValueError:
-        continue
-
-    day_of_year = date.timetuple().tm_yday
-    days.append(day_of_year)
-
-    counts_today = {tag: 0 for tag in hashtags}
-
-with open(filepath, "r") as f:
-    for line in f:
-        parts = line.strip().split()
-
-        if len(parts) < 2:
+    # scan through outputs folder
+    for filename in os.listdir("outputs"):
+        if not filename.endswith(".output"):
             continue
 
-        tag = parts[0]
-        count = parts[1]
+        with open(os.path.join("outputs", filename)) as f:
+            for line in f:
+                tag, day, count = line.strip().split()
+                day = int(day)
+                count = int(count)
 
-        if tag in counts_today:
-            counts_today[tag] = int(count)
+                if tag in data:
+                    data[tag][day] += count
+  
+    plt.figure(figsize=(10,6))
+    days = list(range(1, 367))
 
-# VERY IMPORTANT — append after reading file
-for tag in hashtags:
-    counts_by_tag[tag].append(counts_today[tag])
+    for tag in hashtags:
+        counts = [data[tag][d] for d in days]
+        plt.plot(days, counts, label=tag, linewidth=2)
 
+    plt.xlabel("Day of the Year")
+    plt.ylabel("Number of Tweets")
+    plt.title("Daily Hashtag Usage in 2020")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("task4_plot.png")
+    print("Saved task4_plot.png")
+
+if __name__ == "__main__":
+    main()

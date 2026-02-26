@@ -77,7 +77,7 @@ Each line represents a different hashtag, with the x-axis corresponding
 to the day of the year and the y-axis representing the number of tweets.
 
 <img src="task4_plot.png" width="80%">
-
+<img src="daily_hashtag_trends.png" width="80%">
 
 ---
 
