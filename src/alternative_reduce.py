@@ -29,7 +29,6 @@ for hashtag in hashtags:
             value = total * math.exp(-0.03 * (day - 80))
         counts.append(value / 50)
 
-    # ✅ plot ONCE per hashtag
     plt.plot(days, counts, label=hashtag)
 
 plt.xlabel("Day of the Year")
@@ -42,3 +41,40 @@ output_file = "daily_hashtag_trends.png"
 plt.savefig(output_file)
 print(f"Saved plot to {output_file}")
 
+import sys
+import os
+import matplotlib.pyplot as plt
+
+def main():
+    hashtags = sys.argv[1:]
+    if not hashtags:
+        print("Usage: python3 src/alternative_reduce.py hashtag1 hashtag2")
+        return
+
+    data = {tag: {} for tag in hashtags}
+
+    for filename in os.listdir("../outputs"):
+        if not filename.endswith(".output"):
+            continue
+        with open(os.path.join("../outputs", filename)) as f:
+            for line in f:
+                tag, day, count = line.strip().split()
+                day = int(day)
+                count = int(count)
+                if tag in data:
+                    data[tag][day] = data[tag].get(day, 0) + count
+
+    for tag in data:
+        days = sorted(data[tag])
+        counts = [data[tag][d] for d in days]
+        plt.plot(days, counts, label=tag)
+
+    plt.xlabel("Day of Year")
+    plt.ylabel("Tweet Count")
+    plt.title("Tweet Frequency Over Time")
+    plt.legend()
+    plt.savefig("task4_plot.png")
+    print("Saved task4_plot.png")
+
+if __name__ == "__main__":
+    main()
