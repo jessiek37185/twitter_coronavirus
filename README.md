@@ -76,7 +76,7 @@ The plot below shows how hashtag usage changed over the course of 2020.
 Each line represents a different hashtag, with the x-axis corresponding
 to the day of the year and the y-axis representing the number of tweets.
 
-<img src="daily_hashtag_trends.png" width="80%">
+<img src="task4_plot.png" width="80%">
 
 
 ---
