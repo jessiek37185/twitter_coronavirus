@@ -131,3 +131,6 @@ dmypy.json
 # vim
 *.swo 
 *.swp
+geoTwitter*
+outputs/
+outputs_by_day/
