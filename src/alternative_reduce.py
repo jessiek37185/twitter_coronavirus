@@ -20,8 +20,14 @@ for filename in os.listdir("outputs_by_day"):
 
     with open(filepath) as f:
         for line in f:
-            date, tag, count = line.strip().split()
-            count = int(count)
+            parts =  line.strip().split()
+            
+            if len(parts) != 3:
+                continue
+
+            date = parts[0]
+            tag = parts[1]
+            count = int(parts[2])
 
             if tag not in hashtags:
                 continue
